@@ -4,16 +4,20 @@
 
 @color: #ddd;
 @fruity: #E42;
-@title-color: #333;
+@dark-color: #333;
+
+@small_bradius: 4px;
 @large-bradius: 10px;
+
 @regular-font: 'Rokkitt', serif;
 @title-font: 'Rokkitt', serif;
 
 body{
     text-align:center;
     font-family:@regular-font;
+    color: @dark-color;
 }
-
+    
 // Center vertically while allowing fluid width
 .everything-in-its-right-place{
     position: relative;
@@ -33,17 +37,17 @@ body{
     border-radius: @large-bradius;
     padding: 1em;
     background: fade(@color - #222, 90%);
-    border: 3px solid @color - #666;
+    border: 2px solid @dark-color;
     box-shadow: 0em 0.5em 2em #333;
     
     
     h1{
-        color: @title-color;
+        color: @dark-color;
         font-family: @title-font;
         text-align:center;
         width:400px;
         font-size:1.9em;
-        text-shadow: 1px 1px mix(@title-color,#fff,20%);
+        text-shadow: 1px 1px mix(@dark-color,#fff,20%);
         font-weight:normal;
         span{
             color: desaturate(@fruity,30%);
