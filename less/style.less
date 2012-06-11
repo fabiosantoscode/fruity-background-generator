@@ -6,17 +6,12 @@
 @fruity: #E42;
 @title-color: #333;
 @large-bradius: 10px;
+@regular-font: 'Rokkitt', serif;
+@title-font: 'Rokkitt', serif;
 
-
-*{margin:0; padding:0;}
-
-body,html{
-    height:100%;
-    width:100%;
-    margin:0;
-    padding:0;
+body{
     text-align:center;
-    //font-family:sans-serif;
+    font-family:@regular-font;
 }
 
 // Center vertically while allowing fluid width
@@ -29,7 +24,6 @@ body,html{
         float: left;
         position: relative;
         left:-50%;
-        bottom:50%;
         margin-top: 100px;
     }
 }
@@ -45,7 +39,7 @@ body,html{
     
     h1{
         color: @title-color;
-        font-family: serif;
+        font-family: @title-font;
         text-align:center;
         width:400px;
         font-size:1.9em;
