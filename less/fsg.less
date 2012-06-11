@@ -6,6 +6,8 @@
  * Create a 3-Grid and place the UI elements upon it
 */
 
+@dark-color: #333;
+@highlight: #ddd;
 @full-width: 402px;
 @gutter: 15px;
 @column-width: (@full-width / 3) - @gutter;
@@ -26,9 +28,10 @@
         display:inline-block;
         margin: 0 2px;
         padding: 0;
-        border: 1px solid gray;
+        border: 1px solid @dark-color;
         border-radius: 3px;
         text-align:center;
+        box-shadow: 1px 1px 0 @highlight;
     }
     input[type="button"], button{
         cursor: pointer;
@@ -38,7 +41,7 @@
             background: @buttons+#111;
         }
     }
-        
+    
     input[type="color"]{
         // The width of a half-column
         @s: (@column-width / 2) - @gutter / 4 - 2px;
@@ -51,37 +54,32 @@
         float: left;
         width: @1-column;
         margin-right: @gutter;
+        
         .arrange{
             @hg: @gutter/2;
             @w: @1-column / 2 - @hg;
             width: @w;
             margin: 0 @hg / 2;
             float:left;
-            label{
-                text-align: center;
-                display: block;
-                line-height: 1em;
-            }
-            input{
+            
+            input, label, .color-sample{
+                font-size: 70%;
+                width: @w;
                 display: block;
                 margin: 0;
                 padding: 0;
                 border-radius:0;
             }
             
-            .color-no-alpha-wrapper{
-                position:relative; overflow:visible; 
+            label{
+                height: 1em;
+                margin: 1px 0 6px 0;
             }
-            .color-no-alpha{
-                @height: @w/2.5;
-                
-                height: @height;
-                width: @w + 2px;
-                
-                input{
-                    margin-left: -1px;
-                    margin-top: -@height;
-                }
+            
+            .color-sample{
+                margin: 0;
+                padding: 0;
+                height: 1em;
             }
         }
     }
@@ -124,11 +122,12 @@
         img{
             width: @full-width - 2; //-width
             height: @1-column / 2;
-            border: 1px solid gray;
+            border: 1px solid @dark-color;
             display: block;
             background-color: black;
             border-radius: @large-bradius;
             margin: 10px 0;
+            box-shadow: 1px 1px 0 @highlight;
         }
         .options{
             text-align: center;
