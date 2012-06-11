@@ -9,10 +9,11 @@
 @dark-color: #333;
 @highlight: #ddd;
 @full-width: 402px;
-@gutter: 15px;
-@column-width: (@full-width / 3) - @gutter;
+@gutter: 10px;
+@column-width: (@full-width / 6) - @gutter;
 @1-column: @column-width;
-@2-columns: (@column-width * 2) + @gutter;
+@2-columns: @1-column + @column-width + @gutter;
+@3-columns: @2-columns + @column-width + @gutter;
 @parameter-input-width: 30px;
 @buttons: #dadada;
 @large-bradius: 10px;
@@ -21,8 +22,6 @@
 //.fruity-stripe-generator{
 .fsg{
     width: @full-width;
-    
-    font-size: 70%;
     
     input, button{
         display:inline-block;
@@ -33,7 +32,7 @@
         text-align:center;
         box-shadow: 1px 1px 0 @highlight;
     }
-    input[type="button"], button{
+    button{
         cursor: pointer;
         background: @buttons;
         
@@ -42,77 +41,43 @@
         }
     }
     
-    input[type="color"]{
-        // The width of a half-column
-        @s: (@column-width / 2) - @gutter / 4 - 2px;
-        height: @s;
-        width: @s;
-        font-face: monospace;
-    }
-    
-    .colors{
-        float: left;
-        width: @1-column;
-        margin-right: @gutter;
-        
-        .arrange{
-            @hg: @gutter/2;
-            @w: @1-column / 2 - @hg;
-            width: @w;
-            margin: 0 @hg / 2;
-            float:left;
-            
-            input, label, .color-sample{
-                font-size: 70%;
-                width: @w;
-                display: block;
-                margin: 0;
-                padding: 0;
-                border-radius:0;
-            }
-            
-            label{
-                height: 1em;
-                margin: 1px 0 6px 0;
-            }
-            
-            .color-sample{
-                margin: 0;
-                padding: 0;
-                height: 1em;
-            }
-        }
-    }
-    
     .parameters{
-        float:left;
-        width: @2-columns;
+        width: @full-width;
         
-        
-        // The divs arrange the parameters vertically
         .arrange{
-            width: @2-columns;
-            //border-top: 1px solid gray;
-            margin-top: 1em;
-            //&:first-child{border-top: 0 none; margin-top: 0}
-            text-align: left;
+            float: left;
+            width: @3-columns;
+            margin-right: @gutter;
+            
+            &:last-child{margin-right:0}
         }
         
         label{
-            display: inline-block;
-            width: @1-column - @parameter-input-width;
+            display: block;
+            float:left;
+            clear:left;
+            width: @1-column;
+            text-align:right;
         }
         
         input{
-            width: @parameter-input-width;
+            width: @1-column;
+            float:left;
+        }
+        
+        input.color{
+            width: @2-columns;
+        }
+        input.param{
+            width: @1-column;
         }
         
         button{
-            display: inline-block;
+            float:left;
         }
     }
     
-    hr{
+    hr {
         display: block;
         clear: left;
         margin: @large-bradius;
@@ -121,7 +86,7 @@
     .preview{
         img{
             width: @full-width - 2; //-width
-            height: @1-column / 2;
+            height: @1-column;
             border: 1px solid @dark-color;
             display: block;
             background-color: black;

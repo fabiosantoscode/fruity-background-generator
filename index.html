@@ -21,49 +21,43 @@
 			<h1><span>Fruity</span> Striped Background Generator</h1>
 			
 			<div class="fruity-stripe-generator fsg">
-				<div class="colors">
-					<div class="arrange">
-						<label for="fsg-fg-color">Fg</label>
-						
-						<input type="text" id="fsg-fg-color" value="#F8FF7F" maxlength="9"></input>
-					</div>
-					
-					<div class="arrange">
-						<label for="fsg-bg-color">Bg</label>
-						
-						<input type="text" id="fsg-bg-color" value="#333333" maxlength="9"></input>
-					</div>
-				</div>
-
 				<div class="parameters">
-					<div class="arrange">
-						<label for="fsg-angle">Angle:</label>
-						
-						<input type="number" id="fsg-angle"/></input>
-						
-						<button onclick="$('#fsg-angle').val(45);">
-							45&deg;
-						</button>
-						
-						<button onclick="$('#fsg-angle').val(90);">
-							90&deg;
-						</button>
-						
-						<button onclick="$('#fsg-angle').val(-45);">
-							-45&deg;
-						</button>
+				    <div class="arrange">
+				        <label for="fsg-fg-color">Fg</label>
+					
+					    <input type="text" id="fsg-fg-color" value="#F8FF7F" maxlength="9" class="color"></input>
+					
+					    <label for="fsg-bg-color">Bg</label>
+					
+					    <input type="text" id="fsg-bg-color" value="#333333" maxlength="9" class="color"></input>
 					</div>
 					
 					<div class="arrange">
-						<label for="fsg-thickness">Thickness:</label>
-						
-						<input type="number" id="fsg-thickness"></input>
-						
-						<br />
-						
-						<label for="fsg-spacing">Spacing:</label>
-						
-						<input type="number" id="fsg-spacing"></input>
+					    <label for="fsg-angle">Angle:</label>
+					
+					    <input type="number" id="fsg-angle" class="param"></input>
+					
+					    <button onclick="$('#fsg-angle').val(45);">
+						    45&deg;
+					    </button>
+					
+					    <button onclick="$('#fsg-angle').val(90);">
+						    90&deg;
+					    </button>
+					
+					    <button onclick="$('#fsg-angle').val(-45);">
+						    -45&deg;
+					    </button>
+					
+					    <label for="fsg-thickness">Thickness:</label>
+					
+					    <input type="number" id="fsg-thickness" class="param"></input>
+					
+					    <br />
+					
+					    <label for="fsg-spacing">Spacing:</label>
+					
+					    <input type="number" id="fsg-spacing" class="param" ></input>
 					</div>
 				</div> <!-- .parameters -->
 
