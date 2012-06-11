@@ -1,0 +1,137 @@
+
+
+/*UI*/
+
+/*
+ * Create a 3-Grid and place the UI elements upon it
+*/
+
+@full-width: 402px;
+@gutter: 15px;
+@column-width: (@full-width / 3) - @gutter;
+@1-column: @column-width;
+@2-columns: (@column-width * 2) + @gutter;
+@parameter-input-width: 30px;
+@buttons: #dadada;
+@large-bradius: 10px;
+
+
+//.fruity-stripe-generator{
+.fsg{
+    width: @full-width;
+    
+    font-size: 70%;
+    
+    input, button{
+        display:inline-block;
+        margin: 0 2px;
+        padding: 0;
+        border: 1px solid gray;
+        border-radius: 3px;
+        text-align:center;
+    }
+    input[type="button"], button{
+        cursor: pointer;
+        background: @buttons;
+        
+        &:hover{
+            background: @buttons+#111;
+        }
+    }
+        
+    input[type="color"]{
+        // The width of a half-column
+        @s: (@column-width / 2) - @gutter / 4 - 2px;
+        height: @s;
+        width: @s;
+        font-face: monospace;
+    }
+    
+    .colors{
+        float: left;
+        width: @1-column;
+        margin-right: @gutter;
+        .arrange{
+            @hg: @gutter/2;
+            @w: @1-column / 2 - @hg;
+            width: @w;
+            margin: 0 @hg / 2;
+            float:left;
+            label{
+                text-align: center;
+                display: block;
+                line-height: 1em;
+            }
+            input{
+                display: block;
+                margin: 0;
+                padding: 0;
+                border-radius:0;
+            }
+            
+            .color-no-alpha-wrapper{
+                position:relative; overflow:visible; 
+            }
+            .color-no-alpha{
+                @height: @w/2.5;
+                
+                height: @height;
+                width: @w + 2px;
+                
+                input{
+                    margin-left: -1px;
+                    margin-top: -@height;
+                }
+            }
+        }
+    }
+    
+    .parameters{
+        float:left;
+        width: @2-columns;
+        
+        
+        // The divs arrange the parameters vertically
+        .arrange{
+            width: @2-columns;
+            //border-top: 1px solid gray;
+            margin-top: 1em;
+            //&:first-child{border-top: 0 none; margin-top: 0}
+            text-align: left;
+        }
+        
+        label{
+            display: inline-block;
+            width: @1-column - @parameter-input-width;
+        }
+        
+        input{
+            width: @parameter-input-width;
+        }
+        
+        button{
+            display: inline-block;
+        }
+    }
+    
+    hr{
+        display: block;
+        clear: left;
+        margin: @large-bradius;
+    }
+    
+    .preview{
+        img{
+            width: @full-width - 2; //-width
+            height: @1-column / 2;
+            border: 1px solid gray;
+            display: block;
+            background-color: black;
+            border-radius: @large-bradius;
+            margin: 10px 0;
+        }
+        .options{
+            text-align: center;
+        }
+    }
+}

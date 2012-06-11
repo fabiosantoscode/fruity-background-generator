@@ -1,0 +1,63 @@
+
+/* For the actual fruity stripe generator style, see fsg.less */
+
+
+@color: #ddd;
+@fruity: #E42;
+@title-color: #333;
+@large-bradius: 10px;
+
+
+*{margin:0; padding:0;}
+
+body,html{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    text-align:center;
+    //font-family:sans-serif;
+}
+
+// Center vertically while allowing fluid width
+.everything-in-its-right-place{
+    position: relative;
+    float: left;
+    right: -50%;
+    
+    .wrapper{
+        float: left;
+        position: relative;
+        left:-50%;
+        bottom:50%;
+        margin-top: 100px;
+    }
+}
+
+
+.wrapper{
+    border-radius: @large-bradius;
+    padding: 1em;
+    background: fade(@color - #222, 90%);
+    border: 3px solid @color - #666;
+    box-shadow: 0em 0.5em 2em #333;
+    
+    
+    h1{
+        color: @title-color;
+        font-family: serif;
+        text-align:center;
+        width:400px;
+        font-size:1.9em;
+        text-shadow: 1px 1px mix(@title-color,#fff,20%);
+        font-weight:normal;
+        span{
+            color: desaturate(@fruity,30%);
+            font-weight:bold;
+        }
+    }
+    
+    .fsg{
+        margin-top: 1em;
+    }
+}
