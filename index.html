@@ -2,11 +2,10 @@
 <html>
 <head>
 	<title>Fruity Striped Background Generator</title>
-	<meta http-equiv="refresh" content="300000000000" />
 	
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rokkitt:700,400" />
 	<link rel="stylesheet" type="text/x-less" href="less/style.less" />
-    <link rel="stylesheet" type="text/x-less" href="less/fsg.less" />
+	<link rel="stylesheet" type="text/x-less" href="less/fsg.less" />
 	
 	<script src="js/lib/less-1.3.0.min.js"></script>
 	
@@ -22,42 +21,50 @@
 			
 			<div class="fruity-stripe-generator fsg">
 				<div class="parameters">
-				    <div class="arrange">
-				        <label for="fsg-fg-color">Fg</label>
+					<div class="arrange">
+						<label for="fsg-fg-color">Fg</label>
 					
-					    <input type="text" id="fsg-fg-color" value="#F8FF7F" maxlength="9" class="color"></input>
+						<input type="text" id="fsg-fg-color" class="color"
+							value="#eeeeee" maxlength="9"
+							pattern="#?\d{6}|#?\d{8}" required="required"></input>
 					
-					    <label for="fsg-bg-color">Bg</label>
+						<label for="fsg-bg-color">Bg</label>
 					
-					    <input type="text" id="fsg-bg-color" value="#333333" maxlength="9" class="color"></input>
+						<input type="text" id="fsg-bg-color" class="color"
+							value="#dddddd" maxlength="9"
+							pattern="#?\d{6}|#?\d{8}" required="required"></input>
 					</div>
 					
 					<div class="arrange">
-					    <label for="fsg-angle">Angle:</label>
+						<label for="fsg-angle">Angle:</label>
 					
-					    <input type="number" id="fsg-angle" class="param"></input>
+						<input type="number" id="fsg-angle" class="param"
+							value="-45" min="-90" max="90" maxlength="4"
+							pattern="-?\d+" required="required"></input>
 					
-					    <button onclick="$('#fsg-angle').val(45);">
-						    45&deg;
-					    </button>
+						<button onclick="$('#fsg-angle').val(45);">
+							45&deg;
+						</button>
 					
-					    <button onclick="$('#fsg-angle').val(90);">
-						    90&deg;
-					    </button>
+						<button onclick="$('#fsg-angle').val(90);">
+							90&deg;
+						</button>
 					
-					    <button onclick="$('#fsg-angle').val(-45);">
-						    -45&deg;
-					    </button>
+						<button onclick="$('#fsg-angle').val(-45);">
+							-45&deg;
+						</button>
 					
-					    <label for="fsg-thickness">Thickness:</label>
+						<label for="fsg-thickness">Thickness:</label>
 					
-					    <input type="number" id="fsg-thickness" class="param"></input>
+						<input type="number" id="fsg-thickness" class="param"
+							value="3" min="1" max="100" maxlength="4"
+							pattern="-?\d+" required="required"></input>
 					
-					    <br />
+						<label for="fsg-spacing">Spacing:</label>
 					
-					    <label for="fsg-spacing">Spacing:</label>
-					
-					    <input type="number" id="fsg-spacing" class="param" ></input>
+						<input type="number" id="fsg-spacing" class="param"
+							value="3" min="1" max="100" maxlength="4"
+							pattern="-?\d+" required="required"></input>
 					</div>
 				</div> <!-- .parameters -->
 
