@@ -17,6 +17,8 @@ jQuery(function($){
         
         var self = {
             preview_targets: $('#fsg-preview-img'),
+            code_targets: $('#fsg-copy-code'),
+            save_button: $('#fsg-save-button'),
             inputs:{
                 angle:$('#fsg-angle'), // These are default selectors. They can be overridden.
                 fg:$('#fsg-fg-color'),
@@ -59,8 +61,6 @@ jQuery(function($){
                 
                 png.fill(png.getColorFromHex(self.inputs.bg.val()));
                 
-                //png.drawRectangle(png.getColorFromHex(self.inputs.fg.val()), png.getCenter(), 900, 10, +self.inputs.angle.val());
-                
                 png.drawStripe(png.getColorFromHex(self.inputs.fg.val()), self.inputs.thickness.val(), +self.inputs.angle.val());
                 
                 var dataurl = 'url('
@@ -71,6 +71,10 @@ jQuery(function($){
                 self.preview_targets
                     .css('background',dataurl);
                 
+                if (self.code_targets.length && self.code_targets.css('display') != 'none'){
+                    self.code_targets
+                        .val('    background-image: '+dataurl+';');
+                }
                 self.update_cb();
             },
             set_update_callback: function(cb){
@@ -116,6 +120,14 @@ jQuery(function($){
             },
             init: function(){
                 self.bind_input_events();
+                self.save_button
+                    .click(function(){
+                        self.code_targets.toggle();
+                    });
+                self.code_targets
+                    .focus(function(){
+                        $(this).select();
+                    });
                 self.update();
             }
         };return self;
@@ -124,10 +136,7 @@ jQuery(function($){
     
     stripe_creator.init();
     
-    $('.apply')
-        .click(stripe_creator.update);
     
-
     $('#change-bg')
         .change(function(b){
             $(stripe_creator.preview_targets).attr('style','');
